@@ -1,6 +1,11 @@
-const { Contact } = require("./contact");
 const { User } = require("./user");
+const { Project } = require("./project");
+const { Sprint } = require("./sprint");
+const { Task } = require("./task");
+
 module.exports = {
-  Contact,
   User,
+  Project,
+  Sprint,
+  Task,
 };
