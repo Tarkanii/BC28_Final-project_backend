@@ -27,7 +27,7 @@ const sprintSchema = Schema(
   { versionKey: false, timestamps: true }
 );
 
-projectSchema.methods.setName = function (newName) {
+sprintSchema.methods.setName = function (newName) {
   this.name = newName;
 };
 const joiSchema = Joi.object({
