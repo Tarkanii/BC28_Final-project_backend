@@ -246,7 +246,9 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -270,204 +272,6 @@
           }
         }
       },
-
-      "/api/projects/{projectId}/name": {
-        "patch": {
-          "tags": ["Projects"],
-          "summary": "Update project title",
-          "security": [{ "Bearer": [] }],
-          "parameters": [
-            {
-              "in": "path",
-              "name": "projectId",
-              "required": true,
-              "description": "Project id",
-              "type": "string"
-            }
-          ],
-
-          "requestBody": {
-            "description": "Updating project title",
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdProjNameRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Project updated",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UpdateProjectNameResponse"
-                  }
-                }
-              }
-            },
-            "401": {
-              "description": "Authorization token is missing",
-              "content": {}
-            },
-            "400": {
-              "description": "Missing Name field",
-              "content": {}
-            },
-            "404": {
-              "description": "Project not found",
-              "content": {}
-            }
-          }
-        }
-      },
-
-      "/api/projects/{projectId}/description": {
-        "patch": {
-          "tags": ["Projects"],
-          "summary": "Update project description",
-          "security": [{ "Bearer": [] }],
-          "parameters": [
-            {
-              "in": "path",
-              "name": "projectId",
-              "required": true,
-              "description": "Project id",
-              "type": "string"
-            }
-          ],
-
-          "requestBody": {
-            "description": "Updating project description",
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdateProjectDescripotionRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Project updated",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/UpdateProjectDescriptionResponse"
-                  }
-                }
-              }
-            },
-            "401": {
-              "description": "Authorization token is missing",
-              "content": {}
-            },
-            "400": {
-              "description": "Missing Description field",
-              "content": {}
-            },
-            "404": {
-              "description": "Project not found",
-              "content": {}
-            }
-          }
-        }
-      },
-
-      "/api/projects/{projectId}/participant": {
-        "patch": {
-          "tags": ["Projects"],
-          "summary": "Add project participants",
-          "security": [{ "Bearer": [] }],
-          "parameters": [
-            {
-              "in": "path",
-              "name": "projectId",
-              "required": true,
-              "description": "Project id",
-              "type": "string"
-            }
-          ],
-
-          "requestBody": {
-            "description": "Add project participants by email",
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddProjParticRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Project updated",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/AddProjectParticipantsRequest"
-                  }
-                }
-              }
-            },
-            "401": {
-              "description": "Authorization token is missing",
-              "content": {}
-            },
-            "400": {
-              "description": "Missing Description field",
-              "content": {}
-            },
-            "404": {
-              "description": "Project not found",
-              "content": {}
-            }
-          }
-        },
-        "post": {
-          "tags": ["Projects"],
-          "summary": "Remove participant",
-          "security": [{ "Bearer": [] }],
-          "parameters": [
-            {
-              "in": "path",
-              "name": "projectId",
-              "required": true,
-              "description": "Project id",
-              "type": "string"
-            }
-          ],
-          "requestBody": {
-            "description": "Remove project participants by email",
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddProjectParticipantsRequest"
-                }
-              }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Participant is removed",
-              "content": {}
-            },
-            "401": {
-              "description": "Authorization token is missing",
-              "content": {}
-            },
-            "404": {
-              "description": "Participant is not found",
-              "content": {}
-            }
-          }
-        }
-      },
       "delete": {
         "tags": ["Projects"],
         "summary": "Delete project",
@@ -477,7 +281,9 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "security": [{ "Bearer": [] }],
@@ -497,6 +303,211 @@
         }
       }
     },
+    "/api/projects/{projectId}/name": {
+      "patch": {
+        "tags": ["Projects"],
+        "summary": "Update project title",
+        "security": [{ "Bearer": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "description": "Project id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+
+        "requestBody": {
+          "description": "Updating project title",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProjectNameRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Project updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateProjectNameResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization token is missing",
+            "content": {}
+          },
+          "400": {
+            "description": "Missing Name field",
+            "content": {}
+          },
+          "404": {
+            "description": "Project not found",
+            "content": {}
+          }
+        }
+      }
+    },
+
+    "/api/projects/{projectId}/description": {
+      "patch": {
+        "tags": ["Projects"],
+        "summary": "Update project description",
+        "security": [{ "Bearer": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "description": "Project id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+
+        "requestBody": {
+          "description": "Updating project description",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProjectDescriptionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Project updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateProjectDescriptionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization token is missing",
+            "content": {}
+          },
+          "400": {
+            "description": "Missing Description field",
+            "content": {}
+          },
+          "404": {
+            "description": "Project not found",
+            "content": {}
+          }
+        }
+      }
+    },
+
+    "/api/projects/{projectId}/participant": {
+      "patch": {
+        "tags": ["Projects"],
+        "summary": "Add project participants",
+        "security": [{ "Bearer": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "description": "Project id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+
+        "requestBody": {
+          "description": "Add project participants by email",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProjectParticipantsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Project updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddProjectParticipantsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authorization token is missing",
+            "content": {}
+          },
+          "400": {
+            "description": "Missing Description field",
+            "content": {}
+          },
+          "404": {
+            "description": "Project not found",
+            "content": {}
+          }
+        }
+      },
+      "post": {
+        "tags": ["Projects"],
+        "summary": "Remove participant",
+        "security": [{ "Bearer": [] }],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "projectId",
+            "required": true,
+            "description": "Project id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Remove project participants by email",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProjectParticipantsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Participant is removed",
+            "content": {}
+          },
+          "401": {
+            "description": "Authorization token is missing",
+            "content": {}
+          },
+          "404": {
+            "description": "Participant is not found",
+            "content": {}
+          }
+        }
+      }
+    },
     "/api/sprints/{projectId}": {
       "post": {
         "tags": ["Sprints"],
@@ -508,7 +519,9 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -554,11 +567,14 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
+            "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -586,14 +602,18 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
 
@@ -646,14 +666,18 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -687,14 +711,18 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -725,14 +753,18 @@
             "name": "projectId",
             "required": true,
             "description": "Project id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "requestBody": {
@@ -780,28 +812,36 @@
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "taskId",
             "required": true,
             "description": "Task id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "day",
             "required": true,
             "description": "Date of the task",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "value",
             "required": true,
             "description": "Hours spents on the task",
-            "type": "number"
+            "schema": {
+              "type": "number"
+            }
           }
         ],
         "responses": {
@@ -838,7 +878,9 @@
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -875,14 +917,18 @@
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "day",
             "required": true,
             "description": "Date",
-            "type": "string"
+            "schema": {
+              "type": "number"
+            }
           }
         ],
         "responses": {
@@ -919,14 +965,18 @@
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "taskId",
             "required": true,
             "description": "Task id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -960,14 +1010,18 @@
             "name": "sprintId",
             "required": true,
             "description": "Sprint id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "in": "path",
             "name": "taskId",
             "required": true,
             "description": "Task id",
-            "type": "string"
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1076,21 +1130,6 @@
             "type": "string",
             "description": "Project's description",
             "example": "Updated project description"
-          }
-        }
-      },
-      "GetProjectByIDRequest": {
-        "type": "object",
-        "properties": {
-          "owner._id": {
-            "type": "string",
-            "description": "Owner's Id",
-            "example": "507f1f77bcf86cd799439012"
-          },
-          "participant": {
-            "type": "string",
-            "description": "participant's email",
-            "format": "email"
           }
         }
       },
@@ -1585,25 +1624,6 @@
           }
         }
       },
-      "GetParticipantsResponse": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "example": "success"
-          },
-          "code": {
-            "type": "number",
-            "example": 200
-          },
-          "participants": {
-            "type": "array",
-            "description": "Project's participants' emails",
-            "example": "[anne@mail.ru, jack@example.com, kate@gmail.com]"
-          }
-        }
-      },
-
       "SprintSchema": {
         "type": "object",
         "properties": {
