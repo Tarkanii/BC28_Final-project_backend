@@ -7,7 +7,11 @@
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
-  "servers": [{ "url": "https://bc28_final-project_backend.herokuapp.com" }],
+  "servers": [
+    {
+      "url": "https://bc28_final-project_backend.herokuapp.com"
+    }
+  ],
   "tags": [
     {
       "name": "User",
@@ -99,18 +103,22 @@
       "post": {
         "tags": ["User"],
         "summary": "Logout",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
             "content": {}
           },
-          "400": {
-            "description": "No token provided, bad request",
-            "content": {}
-          },
           "204": {
             "description": "No content, success operation",
+            "content": {}
+          },
+          "400": {
+            "description": "No token provided, bad request",
             "content": {}
           },
           "404": {
@@ -120,12 +128,15 @@
         }
       }
     },
-
     "/api/users": {
       "post": {
         "tags": ["User"],
         "summary": "Find user by email",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -159,7 +170,11 @@
       "get": {
         "tags": ["User"],
         "summary": "Get current user",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -178,12 +193,15 @@
         }
       }
     },
-
     "/api/projects": {
       "get": {
         "tags": ["Projects"],
         "summary": "Get all projects",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -204,7 +222,11 @@
       "post": {
         "tags": ["Projects"],
         "summary": "Creating project",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "requestBody": {
           "description": "Creating project object",
           "required": true,
@@ -234,12 +256,15 @@
         }
       }
     },
-
     "/api/projects/{projectId}": {
       "get": {
         "tags": ["Projects"],
         "summary": "Get project by id",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -286,7 +311,11 @@
             }
           }
         ],
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Project is deleted",
@@ -307,7 +336,11 @@
       "patch": {
         "tags": ["Projects"],
         "summary": "Update project title",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -319,7 +352,6 @@
             }
           }
         ],
-
         "requestBody": {
           "description": "Updating project title",
           "required": true,
@@ -342,12 +374,12 @@
               }
             }
           },
-          "401": {
-            "description": "Authorization token is missing",
-            "content": {}
-          },
           "400": {
             "description": "Missing Name field",
+            "content": {}
+          },
+          "401": {
+            "description": "Authorization token is missing",
             "content": {}
           },
           "404": {
@@ -357,12 +389,15 @@
         }
       }
     },
-
     "/api/projects/{projectId}/description": {
       "patch": {
         "tags": ["Projects"],
         "summary": "Update project description",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -374,7 +409,6 @@
             }
           }
         ],
-
         "requestBody": {
           "description": "Updating project description",
           "required": true,
@@ -397,12 +431,12 @@
               }
             }
           },
-          "401": {
-            "description": "Authorization token is missing",
-            "content": {}
-          },
           "400": {
             "description": "Missing Description field",
+            "content": {}
+          },
+          "401": {
+            "description": "Authorization token is missing",
             "content": {}
           },
           "404": {
@@ -412,12 +446,15 @@
         }
       }
     },
-
     "/api/projects/{projectId}/participant": {
       "patch": {
         "tags": ["Projects"],
         "summary": "Add project participants",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -429,7 +466,6 @@
             }
           }
         ],
-
         "requestBody": {
           "description": "Add project participants by email",
           "required": true,
@@ -452,12 +488,12 @@
               }
             }
           },
-          "401": {
-            "description": "Authorization token is missing",
-            "content": {}
-          },
           "400": {
             "description": "Missing Description field",
+            "content": {}
+          },
+          "401": {
+            "description": "Authorization token is missing",
             "content": {}
           },
           "404": {
@@ -469,7 +505,11 @@
       "post": {
         "tags": ["Projects"],
         "summary": "Remove participant",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -512,7 +552,11 @@
       "post": {
         "tags": ["Sprints"],
         "summary": "Create sprint",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -556,11 +600,14 @@
           }
         }
       },
-
       "get": {
         "tags": ["Sprints"],
         "summary": "Get all sprints",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -590,12 +637,15 @@
         }
       }
     },
-
     "/api/sprints/{projectId}/{sprintId}/name": {
       "patch": {
         "tags": ["Sprints"],
         "summary": "Update sprint title",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -616,7 +666,6 @@
             }
           }
         ],
-
         "requestBody": {
           "description": "Update sprint title",
           "required": true,
@@ -639,12 +688,12 @@
               }
             }
           },
-          "401": {
-            "description": "Authorization token is missing",
-            "content": {}
-          },
           "400": {
             "description": "Missing Name field",
+            "content": {}
+          },
+          "401": {
+            "description": "Authorization token is missing",
             "content": {}
           },
           "404": {
@@ -654,12 +703,15 @@
         }
       }
     },
-
     "/api/sprints/{projectId}/{sprintId}": {
       "get": {
         "tags": ["Sprints"],
         "summary": "Get sprint by id",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -704,7 +756,11 @@
       "delete": {
         "tags": ["Sprints"],
         "summary": "Delete sprint",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -741,12 +797,15 @@
         }
       }
     },
-
     "/api/tasks/{projectId}/{sprintId}": {
       "post": {
         "tags": ["Tasks"],
         "summary": "Creating task",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -800,12 +859,15 @@
         }
       }
     },
-
     "/api/tasks/{sprintId}/{taskId}/day={day}/value={value}": {
       "patch": {
         "tags": ["Tasks"],
         "summary": "Update time spent on task during the day",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -866,12 +928,15 @@
         }
       }
     },
-
     "/api/tasks/{sprintId}": {
       "get": {
         "tags": ["Tasks"],
         "summary": "Get all tasks of the sprint",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -905,12 +970,15 @@
         }
       }
     },
-
     "/api/tasks/{sprintId}/byday={day}": {
       "get": {
         "tags": ["Tasks"],
         "summary": "Get tasks by day",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -953,12 +1021,15 @@
         }
       }
     },
-
     "/api/tasks/{sprintId}/{taskId}": {
       "get": {
         "tags": ["Tasks"],
         "summary": "Get task by id",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1003,7 +1074,11 @@
       "delete": {
         "tags": ["Tasks"],
         "summary": "Delete task",
-        "security": [{ "Bearer": [] }],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -1041,7 +1116,6 @@
       }
     }
   },
-
   "components": {
     "schemas": {
       "SignupRequest": {
@@ -1081,7 +1155,6 @@
           }
         }
       },
-
       "FindUserRequest": {
         "required": ["email"],
         "type": "object",
@@ -1093,7 +1166,6 @@
           }
         }
       },
-
       "CreateProjectRequest": {
         "type": "object",
         "required": ["name"],
@@ -1110,7 +1182,6 @@
           }
         }
       },
-
       "UpdateProjectNameRequest": {
         "type": "object",
         "required": ["name"],
@@ -1133,7 +1204,6 @@
           }
         }
       },
-
       "AddProjectParticipantsRequest": {
         "type": "object",
         "required": ["participants"],
@@ -1145,7 +1215,6 @@
           }
         }
       },
-
       "CreateSprintRequest": {
         "type": "object",
         "required": ["name", "start date", "duration"],
@@ -1167,7 +1236,6 @@
           }
         }
       },
-
       "UpdateSprintNameRequest": {
         "type": "object",
         "required": ["name"],
@@ -1179,7 +1247,6 @@
           }
         }
       },
-
       "CreateTaskRequest": {
         "type": "object",
         "required": ["name", "scheduledTime"],
@@ -1196,7 +1263,6 @@
           }
         }
       },
-
       "SignupResponse": {
         "type": "object",
         "properties": {
@@ -1231,7 +1297,6 @@
           }
         }
       },
-
       "LoginResponse": {
         "type": "object",
         "properties": {
@@ -1275,7 +1340,6 @@
           }
         }
       },
-
       "FindUserByEmail": {
         "type": "object",
         "properties": {
@@ -1287,7 +1351,6 @@
             "type": "number",
             "example": 200
           },
-
           "data": {
             "type": "object",
             "properties": {
@@ -1315,7 +1378,6 @@
           }
         }
       },
-
       "GetCurrentUser": {
         "type": "object",
         "properties": {
@@ -1354,7 +1416,6 @@
           }
         }
       },
-
       "ProjectSchema": {
         "type": "object",
         "properties": {
@@ -1410,7 +1471,6 @@
           }
         }
       },
-
       "ProjectCreatedResponse": {
         "type": "object",
         "properties": {
@@ -1469,7 +1529,6 @@
           }
         }
       },
-
       "GetProjectsResponse": {
         "type": "object",
         "properties": {
@@ -1522,7 +1581,6 @@
           }
         }
       },
-
       "UpdateProjectNameResponse": {
         "type": "object",
         "properties": {
@@ -1591,7 +1649,6 @@
           }
         }
       },
-
       "UpdateProjectDescriptionResponse": {
         "type": "object",
         "properties": {
@@ -1696,7 +1753,6 @@
           }
         }
       },
-
       "SprintCreatedResponse": {
         "type": "object",
         "properties": {
@@ -1718,7 +1774,6 @@
           }
         }
       },
-
       "GetSprintsResponse": {
         "type": "object",
         "properties": {
@@ -1754,7 +1809,6 @@
           }
         }
       },
-
       "TaskSchema": {
         "type": "object",
         "properties": {
@@ -1822,7 +1876,6 @@
           }
         }
       },
-
       "TaskCreatedResponse": {
         "type": "object",
         "properties": {
@@ -1844,7 +1897,6 @@
           }
         }
       },
-
       "GetTasksByDayResponse": {
         "type": "object",
         "properties": {
@@ -1919,7 +1971,6 @@
           }
         }
       },
-
       "GetTasksResponse": {
         "type": "object",
         "properties": {
