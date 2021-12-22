@@ -30,6 +30,8 @@ projectSchema.methods.setName = function (newName) {
 const joiSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
+  participants:Joi.array(),
+  sprints:Joi.array()
 });
 
 const Project = model("project", projectSchema);
