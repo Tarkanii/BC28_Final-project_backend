@@ -9,15 +9,11 @@ const getCurrent = async(req, res) => {
     if(!user){
         throw new Unauthorized("Unauthorized");
     }
-
     res.json({
         status: "success",
         code: 200,
-        data: {
-            user: {
-                subscription:user.subscription
-            }
-        }
+        token,
+        email:user.email,
     })
 }
 
