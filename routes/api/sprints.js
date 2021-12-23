@@ -7,6 +7,7 @@ const {
   authorized,
 } = require("../../middlewares");
 const { sprints: ctrl } = require("../../controllers");
+const { projects: operations } = require("../../controllers");
 
 const router = express.Router();
 
@@ -14,9 +15,22 @@ router.get(
   "/",
   authorized,
   validation(joiSchema),
-  controllWrapper(ctrl.getAll)
+  controllWrapper(operations.getById)
 );
 
 router.post("/", authorized, validation(joiSchema), controllWrapper(ctrl.add));
 
+router.get(
+  "/:id",
+  authorized,
+  validation(joiSchema),
+  ctrlWrapper(ctrl.getById)
+);
+
+router.delete(
+  "/:id",
+  authorized,
+  validation(joiSchema),
+  controllWrapper(ctrl.removeById)
+);
 module.exports = router;
