@@ -16,7 +16,7 @@ const projectSchema = Schema(
     },
     sprints: [
       {
-        type: Schema.Types.ObjectId,
+        type: SchemaTypes.ObjectId,
         ref: "sprints",
       },
     ],

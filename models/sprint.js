@@ -19,6 +19,10 @@ const sprintSchema = Schema(
       type: Array,
       default: [],
     },
+    project: {
+      type: SchemaTypes.ObjectId,
+      ref: "project",
+    },
   },
   { versionKey: false, timestamps: true }
 );
