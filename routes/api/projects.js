@@ -13,7 +13,7 @@ router.post("/createNew", validation(joiSchema), controllWrapper(ctrl.createNewP
 
 router.patch("/:id", validation(joiSchema), controllWrapper(ctrl.renameProject));
 
-router.get("/getAll", validation(joiSchema), controllWrapper(ctrl.getAllProjects));
+router.get("/getAll", controllWrapper(ctrl.getAllProjects));
 
 router.get("/:id", validation(joiSchema), controllWrapper(ctrl.getProjectById));
 
