@@ -1,3 +1,7 @@
 const auth = require("./auth");
+const projects = require("./projects")
 
-module.exports = { auth };
+module.exports = { 
+    auth,
+    projects
+};
