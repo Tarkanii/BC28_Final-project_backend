@@ -14,12 +14,12 @@ const projectSchema = Schema(
     participants: {
       type: Array,
     },
-    sprints: [
-      {
-        type: SchemaTypes.ObjectId,
-        ref: "sprints",
-      },
-    ],
+    // sprints: [
+    //   {
+    //     type: SchemaTypes.ObjectId,
+    //     ref: "sprints",
+    //   },
+    // ],
   },
   { versionKey: false, timestamps: true }
 );

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-const getAll = require("./getAll");
-const getById = require("./getById");
-
-module.exports = {
-  getAll,
-  getById,
-};
-=======
 const createNewProject = require("./createNewProject")
 const getAllProjects = require("./getAllProjects")
 const getProjectById = require("./getProjectById")
@@ -20,4 +11,3 @@ module.exports = {
     removeProject,
     renameProject
 }
->>>>>>> dev
