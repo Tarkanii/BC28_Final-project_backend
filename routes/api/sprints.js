@@ -24,7 +24,7 @@ router.get(
   "/:id",
   authorized,
   validation(joiSchema),
-  ctrlWrapper(ctrl.getById)
+  controllWrapper(ctrl.getById)
 );
 
 router.delete(
