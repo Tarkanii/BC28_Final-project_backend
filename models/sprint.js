@@ -15,12 +15,26 @@ const sprintSchema = Schema(
       type: String,
       required: [true, "endDate is required"],
     },
-    tasks: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "tasks",
-      },
-    ],
+    duration:{
+      type:Number,
+      required:[true,"Duration id required"]
+    },
+    projectId: {
+      type: SchemaTypes.ObjectId,
+      ref: "project",
+    },
+    tasks:[{
+      type:SchemaTypes.ObjectId,
+      ref:"tasks"
+    }]
+
+    //tasks: [
+    //  {
+    //    type: Schema.Types.ObjectId,
+      //  ref: "tasks",
+    //  },
+  //  ],
+
   },
   { versionKey: false, timestamps: true }
 );
