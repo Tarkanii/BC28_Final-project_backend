@@ -15,10 +15,12 @@ const sprintSchema = Schema(
       type: String,
       required: [true, "endDate is required"],
     },
-    tasks: {
-      type: Array,
-      default: [],
-    },
+    tasks: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "tasks",
+      },
+    ],
   },
   { versionKey: false, timestamps: true }
 );

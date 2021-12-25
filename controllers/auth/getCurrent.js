@@ -5,7 +5,6 @@ const getCurrent = async(req, res) => {
     const [bearer, token] = authorization.split(" ");
     if(token){
     const user = await User.findOne({token});
-    console.log(user)
     if(!user){
         throw new Unauthorized("Unauthorized");
     }
