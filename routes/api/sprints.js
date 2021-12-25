@@ -15,7 +15,7 @@ router.get(
   "/",
   authorized,
   validation(joiSchema),
-  controllWrapper(operations.getById)
+  controllWrapper(operations.getProjectById)
 );
 
 router.post("/", authorized, validation(joiSchema), controllWrapper(ctrl.add));
