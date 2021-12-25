@@ -1684,7 +1684,7 @@
       "SprintSchema": {
         "type": "object",
         "properties": {
-          "allScheduledTime": {
+          "totalPlannedTime": {
             "type": "number",
             "description": "Whole time spent on task",
             "example": "6"
@@ -1714,7 +1714,7 @@
             "description": "End of the sprint",
             "example": "2021-02-01"
           },
-          "totalDays": {
+          "totalDaily": {
             "type": "array",
             "description": "array of task days",
             "items": {
@@ -1729,10 +1729,10 @@
                 "2021-01-01": 0
               },
               {
-                "2021-01-01": 0
+                "2021-01-02": 0
               },
               {
-                "2021-01-01": 0
+                "2021-01-03": 0
               }
             ]
           },
