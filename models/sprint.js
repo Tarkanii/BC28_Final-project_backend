@@ -15,14 +15,18 @@ const sprintSchema = Schema(
       type: String,
       required: [true, "endDate is required"],
     },
-    tasks: {
-      type: Array,
-      default: [],
+    duration:{
+      type:Number,
+      required:[true,"Duration id required"]
     },
-    project: {
+    projectId: {
       type: SchemaTypes.ObjectId,
       ref: "project",
     },
+    sprints:[{
+      type:SchemaTypes.ObjectId,
+      ref:"sprints"
+    }]
   },
   { versionKey: false, timestamps: true }
 );
@@ -34,7 +38,6 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   startDate: Joi.string().required(),
   endDate: Joi.string().required(),
-  tasks: Joi.array().default([]),
 });
 
 const Sprint = model("sprint", sprintSchema);

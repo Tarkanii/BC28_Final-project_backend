@@ -1,7 +1,7 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaTypes } = require("mongoose");
 const Joi = require("joi");
 
-const projectSchema = Schema(
+const projectSchema = new Schema(
   {
     name: {
       type: String,
@@ -13,13 +13,11 @@ const projectSchema = Schema(
     },
     participants: {
       type: Array,
-    },
-    // sprints: [
-    //   {
-    //     type: SchemaTypes.ObjectId,
-    //     ref: "sprints",
-    //   },
-    // ],
+    }, 
+    sprints:[{
+      type:SchemaTypes.ObjectId,
+      ref: "sprints"
+    }],
   },
   { versionKey: false, timestamps: true }
 );
@@ -31,7 +29,6 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
   participants:Joi.array(),
-  sprints:Joi.array()
 });
 
 const Project = model("project", projectSchema);

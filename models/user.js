@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaTypes } = require("mongoose");
 const Joi = require("joi");
 const bcrypt = require("bcryptjs");
 
@@ -17,6 +17,10 @@ const userSchema = Schema(
       type: String,
       default: null,
     },
+    projects:[{
+      type:SchemaTypes.ObjectId,
+      ref:"projects "
+    }]
   },
   { versionKey: false, timestamps: true }
 );
