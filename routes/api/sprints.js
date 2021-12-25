@@ -1,5 +1,5 @@
 const express = require("express");
-
+const { Sprint: ctrl } = require("../../controllers");
 const { joiSchema } = require("../../models/sprint");
 const {
   controllWrapper,
@@ -11,26 +11,12 @@ const { projects: operations } = require("../../controllers");
 
 const router = express.Router();
 
-router.get(
-  "/",
-  authorized,
-  validation(joiSchema),
-  controllWrapper(operations.getProjectById)
-);
+router.get("/:id", validation(joiSchema), controllWrapper(ctrl.getSprint));
 
-router.post("/", authorized, validation(joiSchema), controllWrapper(ctrl.add));
+router.post("/", validation(joiSchema), controllWrapper(ctrl.createSprint));
 
-router.get(
-  "/:id",
-  authorized,
-  validation(joiSchema),
-  controllWrapper(ctrl.getById)
-);
+router.patch("/:id", validation(joiSchema), controllWrapper(ctrl.updateSprint));
 
-router.delete(
-  "/:id",
-  authorized,
-  validation(joiSchema),
-  controllWrapper(ctrl.removeById)
-);
+router.delete("/:id", validation(joiSchema), controllWrapper(ctrl.deleteSprint));
+
 module.exports = router;

@@ -1,5 +1,13 @@
 const auth = require("./auth");
-const sprints = require("./sprints");
-const projects = require("./projects");
 
-module.exports = { auth, sprints, projects };
+const projects = require("./projects")
+const Sprint = require("./projects/sprint")
+const Task = require("./projects/Task")
+
+module.exports = { 
+    auth,
+    projects,
+    Sprint,
+    Task
+};
+

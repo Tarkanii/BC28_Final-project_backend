@@ -27,6 +27,14 @@ const sprintSchema = Schema(
       type:SchemaTypes.ObjectId,
       ref:"tasks"
     }]
+
+    //tasks: [
+    //  {
+    //    type: Schema.Types.ObjectId,
+      //  ref: "tasks",
+    //  },
+  //  ],
+
   },
   { versionKey: false, timestamps: true }
 );

@@ -1,5 +1,6 @@
 const { Project, Sprint, Task } = require("../../models");
 
+
 const getCurrent = async (req, res) => {
     const {user} = req;
     const userProjects = await Project.find({ participants: user._id });
