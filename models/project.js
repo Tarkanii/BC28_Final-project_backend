@@ -11,17 +11,14 @@ const projectSchema = new Schema(
       type: String,
       required: [true, "Description is required"],
     },
-    participants: {
-      type: Array,
-    }, 
+    participants: [{
+      type:SchemaTypes.ObjectId,
+      ref: "user"
+    }],
     sprints:[{
       type:SchemaTypes.ObjectId,
       ref: "sprints"
     }],
-    owner: {
-      type: SchemaTypes.ObjectId,
-      ref: "user",
-    },
   },
   { versionKey: false, timestamps: true }
 );
