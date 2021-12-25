@@ -18,6 +18,10 @@ const projectSchema = new Schema(
       type:SchemaTypes.ObjectId,
       ref: "sprints"
     }],
+    owner: {
+      type: SchemaTypes.ObjectId,
+      ref: "user",
+    },
   },
   { versionKey: false, timestamps: true }
 );
@@ -29,6 +33,7 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
   participants:Joi.array(),
+  owner: Joi.string()
 });
 
 const Project = model("project", projectSchema);

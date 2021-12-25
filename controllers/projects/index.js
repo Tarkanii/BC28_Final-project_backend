@@ -1,14 +1,16 @@
 const createNewProject = require("./createNewProject")
-const getAllProjects = require("./getAllProjects")
 const getProjectById = require("./getProjectById")
 const removeProject = require("./removeProject")
 const renameProject = require("./renameProject")
+const getProject = require("./getProject")
+const updateParticipants = require("./updateParticipants")
 
 
 module.exports = {
     createNewProject,
-    getAllProjects,
     getProjectById,
     removeProject,
     renameProject,
+    getProject,
+    updateParticipants
 }

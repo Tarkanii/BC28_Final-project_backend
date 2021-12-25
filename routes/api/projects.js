@@ -21,9 +21,14 @@ router.patch(
   controllWrapper(ctrl.renameProject)
 );
 
-router.get("/getAll", controllWrapper(ctrl.getAllProjects));
+router.patch(
+  "/updateParticipants/:id",
+  controllWrapper(ctrl.updateParticipants)
+);
 
-router.get("/:id", validation(joiSchema), controllWrapper(ctrl.getProjectById));
+router.get("/getAll/:q", controllWrapper(ctrl.getProject));
+
+router.get("/:id", controllWrapper(ctrl.getProjectById));
 
 router.delete(
   "/:id",
