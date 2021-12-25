@@ -6,6 +6,8 @@ const {
   validation,
   authorized,
 } = require("../../middlewares");
+const { sprints: ctrl } = require("../../controllers");
+const { projects: operations } = require("../../controllers");
 
 const router = express.Router();
 

@@ -1,4 +1,5 @@
-const { User } = require("../../models");
+const { User, Project, Sprint, Task } = require("../../models");
+
 
 const getCurrent = async(req, res) => {
     const {authorization = ""} = req.headers;
@@ -9,11 +10,41 @@ const getCurrent = async(req, res) => {
         throw new Unauthorized("Unauthorized");
     }
     res.json({
-        status: "success",
-        code: 200,
-        token,
-        email:user.email,
-    })}
-}
+      status: "success",
+      code: 200,
+      token,
+      email: user.email,
+    });
+  }
+};
 
-module.exports = getCurrent
+module.exports = getCurrent;
+
+{
+  const {user} = req;
+  const userProjects = await Project.find({ participants: user._id });
+  const newProjects = userProjects.map((project) => {
+    const { _id } = project;
+    const sprints = await Sprint.find({projectId:_id});
+    const newSprints =  sprints.map(sprint => {
+        const {_id} = sprint;
+        const tasks = await Task.find({sprintId:_id});
+        return {
+            ...sprint,
+            tasks,
+        }
+    });
+    return {
+        ...project,
+        sprints:[...newSprints],
+    };
+
+  });
+  res.status(200).json({
+      token,
+      user:{
+          email:user.email,
+          projects:[...newProjects]
+      }
+  })
+}

@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, SchemaTypes, model } = require("mongoose");
 const Joi = require("joi");
 
 const sprintSchema = Schema(
@@ -32,7 +32,6 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   startDate: Joi.string().required(),
   endDate: Joi.string().required(),
-  tasks: Joi.array().default([]),
 });
 
 const Sprint = model("sprint", sprintSchema);

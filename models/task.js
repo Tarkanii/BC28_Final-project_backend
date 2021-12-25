@@ -16,6 +16,10 @@ const taskSchema = Schema(
       type: Number,
       min:1,
     },
+    sprintId:{
+      type:SchemaTypes.ObjectId,
+      ref:"sprints"
+    },
     owner: {
       type: SchemaTypes.ObjectId,
       ref: "user",
