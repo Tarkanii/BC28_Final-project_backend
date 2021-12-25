@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.post(
   "/createNew",
+  authorized,
   validation(joiSchema),
   controllWrapper(ctrl.createNewProject)
 );

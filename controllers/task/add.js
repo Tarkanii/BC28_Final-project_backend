@@ -1,7 +1,7 @@
-const { Sprint } = require("../../models");
+const { Task } = require("../../models");
 
 const add = async (req, res) => {
-  const result = await Sprint.create({ ...req.body});
+  const result = await Task.create({ ...req.body});
   res.status(201).json({
     status: "success",
     code: 201,

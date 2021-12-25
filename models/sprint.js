@@ -23,9 +23,9 @@ const sprintSchema = Schema(
       type: SchemaTypes.ObjectId,
       ref: "project",
     },
-    sprints:[{
+    tasks:[{
       type:SchemaTypes.ObjectId,
-      ref:"sprints"
+      ref:"tasks"
     }]
   },
   { versionKey: false, timestamps: true }
