@@ -1,13 +1,13 @@
 const { User, Project, Sprint, Task } = require("../../models");
 
-const getCurrent = async (req, res) => {
-  const { authorization = "" } = req.headers;
-  const [bearer, token] = authorization.split(" ");
-  if (token) {
-    const user = await User.findOne({ token });
-    console.log(user);
-    if (!user) {
-      throw new Unauthorized("Unauthorized");
+
+const getCurrent = async(req, res) => {
+    const {authorization = ""} = req.headers;
+    const [bearer, token] = authorization.split(" ");
+    if(token){
+    const user = await User.findOne({token});
+    if(!user){
+        throw new Unauthorized("Unauthorized");
     }
     res.json({
       status: "success",
