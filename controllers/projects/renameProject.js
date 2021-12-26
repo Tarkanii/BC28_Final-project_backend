@@ -3,7 +3,7 @@ const { Project } = require("../../models/project")
 
 const renameProject = async(req, res)=> {
     const {id} = req.params;
-    const data = await Project.findByIdAndUpdate(id);
+    const data = await Project.findByIdAndUpdate({_id:id},req.body, {new: true});
     if(!data){
         throw new NotFound(`Project with id=${id} not found`)
     }
