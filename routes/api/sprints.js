@@ -13,8 +13,10 @@ router.get("/:id", controllWrapper(ctrl.getSprint));
 
 router.post("/", validation(joiSchema), controllWrapper(ctrl.createSprint));
 
-router.patch("/:id", validation(joiSchema), controllWrapper(ctrl.updateSprint));
+router.patch("/:id",  controllWrapper(ctrl.updateSprint));
 
 router.delete("/:id",  controllWrapper(ctrl.deleteSprint));
+
+
 
 module.exports = router;

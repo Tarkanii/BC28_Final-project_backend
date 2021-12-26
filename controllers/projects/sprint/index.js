@@ -7,5 +7,5 @@ module.exports = {
     createSprint,
     getSprint,
     deleteSprint,
-    updateSprint
+    updateSprint,
 }

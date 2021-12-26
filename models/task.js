@@ -9,7 +9,7 @@ const taskSchema = Schema(
     },
     scheduledHours: {
       type: Number,
-      required: [true, "scheduledHours is required"],
+      // required: [true, "scheduledHours is required"],
       min:1,
     },
     spentHours: {
@@ -35,6 +35,7 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   scheduledHours: Joi.number().min(1).required(),
   spentHours: Joi.number().min(1),
+  sprintId:Joi.string()
 });
 
 const Task = model("task", taskSchema);
