@@ -18,7 +18,6 @@ router.post(
 router.post(
   "/findParticipant",
   authorized,
-  validation(joiSchema),
   controllWrapper(ctrl.getUserByEmail)
 );
 
