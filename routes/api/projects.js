@@ -15,6 +15,11 @@ router.post(
   validation(joiSchema),
   controllWrapper(ctrl.createNewProject)
 );
+router.post(
+  "/findParticipant",
+  authorized,
+  controllWrapper(ctrl.getUserByEmail)
+);
 
 router.patch(
   "/:id",

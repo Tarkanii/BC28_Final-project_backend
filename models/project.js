@@ -14,6 +14,7 @@ const projectSchema = new Schema(
     participants: [{
       type:SchemaTypes.ObjectId,
       ref: "user"
+      
     }],
     sprints:[{
       type:SchemaTypes.ObjectId,
