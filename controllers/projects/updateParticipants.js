@@ -4,6 +4,8 @@ const { Project } = require("../../models/project")
 const updateParticipants = async(req, res)=> {
     const {id} = req.params;
     const data = await Project.findByIdAndUpdate(id, {"$push": req.body}, { new: true });
+    console.log(req.body)
+    console.log(data)
     if(!data){
         throw new NotFound(`Project with id=${id} not found`)
     }

@@ -4,6 +4,7 @@ const removeProject = require("./removeProject")
 const renameProject = require("./renameProject")
 const getProject = require("./getProject")
 const updateParticipants = require("./updateParticipants")
+const getUserByEmail = require("./getUserByEmail")
 
 
 module.exports = {
@@ -12,5 +13,6 @@ module.exports = {
     removeProject,
     renameProject,
     getProject,
-    updateParticipants
+    updateParticipants,
+    getUserByEmail
 }
