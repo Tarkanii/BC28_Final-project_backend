@@ -25,7 +25,7 @@ const sprintSchema = Schema(
     },
     tasks:[{
       type:SchemaTypes.ObjectId,
-      ref:"tasks"
+      ref:"task"
     }]
 
     //tasks: [
@@ -46,6 +46,8 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   startDate: Joi.string().required(),
   endDate: Joi.string().required(),
+  duration: Joi.number().required(),
+  projectId: Joi.string()
 });
 
 const Sprint = model("sprint", sprintSchema);

@@ -18,7 +18,7 @@ const projectSchema = new Schema(
     }],
     sprints:[{
       type:SchemaTypes.ObjectId,
-      ref: "sprints"
+      ref: "sprint"
     }],
   },
   { versionKey: false, timestamps: true }
@@ -31,7 +31,7 @@ const joiSchema = Joi.object({
   name: Joi.string().required(),
   description: Joi.string().required(),
   participants:Joi.array(),
-  owner: Joi.string()
+  sprints: Joi.array()
 });
 
 const Project = model("project", projectSchema);

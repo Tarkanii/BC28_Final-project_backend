@@ -19,7 +19,7 @@ const userSchema = Schema(
     },
     projects:[{
       type:SchemaTypes.ObjectId,
-      ref:"projects "
+      ref:"project"
     }]
   },
   { versionKey: false, timestamps: true }

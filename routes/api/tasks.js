@@ -9,12 +9,12 @@ const {
 
 const router = express.Router();
 
-router.get("/:id", validation(joiSchema), controllWrapper(ctrl.getTask));
+router.get("/:id", controllWrapper(ctrl.getTask));
 
 router.post("/", validation(joiSchema), controllWrapper(ctrl.createTask));
 
 router.patch("/:id", validation(joiSchema), controllWrapper(ctrl.updateTask));
 
-router.delete("/:id", validation(joiSchema), controllWrapper(ctrl.deleteTask));
+router.delete("/:id",  controllWrapper(ctrl.deleteTask));
 
 module.exports = router;
