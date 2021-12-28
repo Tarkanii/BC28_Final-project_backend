@@ -2,10 +2,10 @@ const {NotFound} = require("http-errors");
 const { Sprint } = require("../../../models/sprint")
 
 const getSprint = async(req, res)=> {
-    const {sprintId} = req.params;
-    const data = await Sprint.findById(sprintId).populate("tasks");
+    const {id} = req.params;
+    const data = await Sprint.findById(id).populate("tasks");
     if(!data){
-        throw new NotFound(`Sprint with id=${sprintId} not found`)
+        throw new NotFound(`Sprint with id=${id} not found`)
     }
     res.json({
         status: "success",

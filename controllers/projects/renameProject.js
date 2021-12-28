@@ -2,10 +2,10 @@ const {NotFound} = require("http-errors");
 const { Project } = require("../../models/project")
 
 const renameProject = async(req, res)=> {
-    const {projectId} = req.params;
-    const data = await Project.findByIdAndUpdate({_id:projectId},req.body, {new: true});
+    const {id} = req.params;
+    const data = await Project.findByIdAndUpdate({_id:id},req.body, {new: true});
     if(!data){
-        throw new NotFound(`Project with id=${projectId} not found`)
+        throw new NotFound(`Project with id=${id} not found`)
     }
     res.json({
         status: "success",
