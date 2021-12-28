@@ -3,7 +3,7 @@ const { Project } = require("../../models/project")
 
 const getProjectById = async(req, res)=> {
     const {projectId} = req.params;
-    const data = await Project.findById(iprojectIdd).populate("participants", "email").populate("sprints");
+    const data = await Project.findById(projectId).populate("participants", "email").populate("sprints");
     if(!data){
         throw new NotFound(`Project with id=${projectId} not found`)
     }
