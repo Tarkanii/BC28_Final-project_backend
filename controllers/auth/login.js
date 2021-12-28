@@ -25,6 +25,8 @@ const login = async (req, res) => {
     status: "success",
     code: 200,
     token,
+    email:user.email,
+    id:payload.id,
     user: {email, id:payload.id
     },
   });
