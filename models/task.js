@@ -34,8 +34,9 @@ taskSchema.methods.setSpentHours = function (hours) {
 const joiSchema = Joi.object({
   name: Joi.string().required(),
   scheduledHours: Joi.number().min(0).required(),
-  spentHours: Joi.number().min(0),
-  sprintId:Joi.string()
+  spentHours: Joi.number().default(0),
+  sprintId:Joi.string(),
+  owner:Joi.string(),
 });
 
 const Task = model("task", taskSchema);
