@@ -2,10 +2,10 @@ const {NotFound} = require("http-errors");
 const { Project } = require("../../models/project")
 
 const getProjectById = async(req, res)=> {
-    const {id} = req.params;
-    const data = await Project.findById(id).populate("participants", "email").populate("sprints");
+    const {projectId} = req.params;
+    const data = await Project.findById(iprojectIdd).populate("participants", "email").populate("sprints");
     if(!data){
-        throw new NotFound(`Project with id=${id} not found`)
+        throw new NotFound(`Project with id=${projectId} not found`)
     }
     res.json({
         status: "success",

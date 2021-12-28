@@ -10,11 +10,11 @@ const taskSchema = Schema(
     scheduledHours: {
       type: Number,
       // required: [true, "scheduledHours is required"],
-      min:1,
+      min:0,
     },
     spentHours: {
       type: Number,
-      min:1,
+      min:0,
     },
     sprintId:{
       type:SchemaTypes.ObjectId,
@@ -33,8 +33,8 @@ taskSchema.methods.setSpentHours = function (hours) {
 };
 const joiSchema = Joi.object({
   name: Joi.string().required(),
-  scheduledHours: Joi.number().min(1).required(),
-  spentHours: Joi.number().min(1),
+  scheduledHours: Joi.number().min(0).required(),
+  spentHours: Joi.number().min(0),
   sprintId:Joi.string()
 });
 
