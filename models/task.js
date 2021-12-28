@@ -9,12 +9,13 @@ const taskSchema = Schema(
     },
     scheduledHours: {
       type: Number,
-      // required: [true, "scheduledHours is required"],
+      required: [true, "scheduledHours is required"],
       min:0,
     },
     spentHours: {
       type: Number,
       min:0,
+      default:0,
     },
     sprintId:{
       type:SchemaTypes.ObjectId,
