@@ -2,10 +2,10 @@ const {NotFound} = require("http-errors");
 const { Project } = require("../../models/project")
 
 const removeProject = async(req, res)=> {
-    const {id} = req.params;
-    const data = await Project.findByIdAndRemove(id);
+    const {projectId} = req.params;
+    const data = await Project.findByIdAndRemove(projectId);
     if(!data){
-        throw new NotFound(`Project with id=${id} not found`)
+        throw new NotFound(`Project with id=${projectId} not found`)
     }
     res.json({
         status: "success",

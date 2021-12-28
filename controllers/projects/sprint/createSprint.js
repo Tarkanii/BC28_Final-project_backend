@@ -2,7 +2,8 @@ const { Project } = require("../../../models");
 const { Sprint } = require("../../../models/sprint")
 
 const createSprint = async (req, res) => {
-    const value = {name:req.body.name,startDate:req.body.startDate,endDate:req.body.endDate,duration:req.body.duration}
+    const {name,startDate,endDate,sprintDuration}  = req.body;
+    const value = {name,startDate,endDate,sprintDuration};
     const data = await Sprint.create(value);
     const sprindId = data.id
     await Project.findByIdAndUpdate({_id:req.body.projectId},{"$push":{ "sprints" : sprindId }})
